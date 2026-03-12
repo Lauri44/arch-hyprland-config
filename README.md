@@ -2,7 +2,7 @@
 >This repo is just fork from the user: [binneweb](https://github.com/binnewbs/arch-hyprland/tree/main)
 ><br>
 ><br>
->I forked his repos since it currently is not up-to-date regarding the hyprland config syntax and therefore does not work.
+>I forked his repo since it currently is not up-to-date regarding the hyprland config syntax and therefore does not work.
 
 # MY HYPRLAND RICE
 This rice uses configs from many repos, so it's not 100% pure my creation!
