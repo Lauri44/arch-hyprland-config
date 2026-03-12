@@ -1,5 +1,5 @@
 >[!NOTE]
->This repo is just fork from the user: [binneweb](https://github.com/binnewbs/arch-hyprland/tree/main)
+>This repo is just a fork from the user: [binneweb](https://github.com/binnewbs/arch-hyprland/tree/main)
 ><br>
 ><br>
 >I forked his repo since it currently is not up-to-date regarding the hyprland config syntax and therefore does not work.
