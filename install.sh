@@ -7,13 +7,13 @@ echo " "
 echo "[INFO] Install dependencies..."
 echo " "
 
-sudo pacman -S hyprpolkitagent hyprlock awww hypridle waybar nwg-displays matugen cava fastfetch rofi swaync "swaync 0.12" wlogout nm-applet bluez bluez-utils blueman btop
+sudo pacman -S hyprpolkitagent hyprlock awww hypridle waybar nwg-displays matugen cava fastfetch rofi swaync "swaync 0.12" wlogout nm-applet bluez bluez-utils blueman btop hyprshot hyprpicker
 
 echo " "
 echo "[INFO] Copying Config Files"
 echo " "
 
-cp -rf .config ~/.config
+cp -rf .config ~/.config/
 
 echo " "
 echo "[INFO] Enabling Services"
