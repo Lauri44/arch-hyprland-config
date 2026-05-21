@@ -97,9 +97,9 @@
 
 "clock": {
 	"interval": 1,
-    "format": " {:%I:%M %p}", // AM PM format
-    //"format": " {:%H:%M:%S}",// 24H
-	"format-alt": " {:%H:%M   %Y, %d %B, %A}",
+    "format": "   {:%I:%M %p}", // AM PM format
+    //"format": "   {:%H:%M:%S}",// 24H
+	"format-alt": "   {:%H:%M     %Y, %d %B, %A}",
 	"tooltip-format": "<tt><small>{calendar}</small></tt>",
 	"calendar": {
 		"mode": "year",
@@ -161,7 +161,7 @@
 	"format-icons": [
 		"▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"
 	],
-	"on-click-right": "gnome-system-monitor",
+	"on-click-right": "kitty btop",
 },
 
 "disk": {
@@ -174,13 +174,6 @@
 	"tooltip-format": "{used} used out of {total} on {path} ({percentage_used}%)",
 },
 
-"hyprland/language": {
-	"format": "Lang: {}",
-	"format-en": "US",
-	"format-tr": "Korea",
-	"keyboard-name": "at-translated-set-2-keyboard",
-	"on-click": "hyprctl switchxkblayout $SET_KB next"
-},
 
 "hyprland/submap": {
 	"format": "<span style=\"italic\">  {}</span>", // Icon: expand-arrows-alt
@@ -327,7 +320,7 @@
 		"portable": "",
 		"car": "",
 		"default": [
-			"", "", "󰕾",  ""
+			" ", " ", "󰕾 ", "  "
 		],
 		"ignored-sinks": [
 			"Easy Effects Sink"

@@ -7,7 +7,7 @@ sDIR="$HOME/.config/hypr/scripts"
 
 # Get Volume
 get_volume() {
-    volume=$(pamixer --get-volume)
+    volume=$(pactl get-sink-volume @DEFAULT_SINK@)
     if [[ "$volume" -eq "0" ]]; then
         echo "Muted"
     else
@@ -41,37 +41,39 @@ notify_user() {
 
 # Increase Volume
 inc_volume() {
-    if [ "$(pamixer --get-mute)" == "true" ]; then
+    if [[ "$(pactl get-sink-mute @DEFAULT_SINK@)" == *"yes"* ]]; then
+        echo hi
         toggle_mute
     else
-        pamixer -i 5 --allow-boost --set-limit 150 && notify_user
+        pactl set-sink-volume @DEFAULT_SINK@ +5%  && notify_user
     fi
 }
 
 # Decrease Volume
 dec_volume() {
-    if [ "$(pamixer --get-mute)" == "true" ]; then
+    if [[ "$(pactl get-sink-mute @DEFAULT_SINK@)" == *"yes"* ]]; then
         toggle_mute
     else
-        pamixer -d 5 && notify_user
+         pactl set-sink-volume @DEFAULT_SINK@ -5% && notify_user
     fi
 }
 
 # Toggle Mute
 toggle_mute() {
-	if [ "$(pamixer --get-mute)" == "false" ]; then
-		pamixer -m && notify-send -e -u low -i "$iDIR/volume-mute.png" " Mute"
-	elif [ "$(pamixer --get-mute)" == "true" ]; then
-		pamixer -u && notify-send -e -u low -i "$(get_icon)" " Volume:" " Switched ON"
+	if [[ "$(pactl get-sink-mute @DEFAULT_SINK@)" == *"no"* ]]; then 
+		pactl set-sink-mute @DEFAULT_SINK@ toggle && notify-send -e -u low -i "$iDIR/volume-mute.png" " Mute"
+	elif [[ "$(pactl get-sink-mute @DEFAULT_SINK@)" == *"yes"* ]]; then
+        
+		pactl set-sink-mute @DEFAULT_SINK@ toggle && notify-send -e -u low -i "$(get_icon)" " Volume:" " Switched ON"
 	fi
 }
 
 # Toggle Mic
 toggle_mic() {
-	if [ "$(pamixer --default-source --get-mute)" == "false" ]; then
-		pamixer --default-source -m && notify-send -e -u low -i "$iDIR/microphone-mute.png" " Microphone:" " Switched OFF"
-	elif [ "$(pamixer --default-source --get-mute)" == "true" ]; then
-		pamixer -u --default-source u && notify-send -e -u low -i "$iDIR/microphone.png" " Microphone:" " Switched ON"
+	if [[ "$(pactl get-source-mute @DEFAULT_SOURCE@)" == *"no"* ]]; then
+		pactl set-source-mute @DEFAULT_SOURCE@ toggle && notify-send -e -u low -i "$iDIR/microphone-mute.png" " Microphone:" " Switched OFF"
+	elif [[ "$(pactl get-source-mute @DEFAULT_SOURCE@)" == *"yes"* ]]; then
+		pactl set-source-mute @DEFAULT_SOURCE@ toggle && notify-send -e -u low -i "$iDIR/microphone.png" " Microphone:" " Switched ON"
 	fi
 }
 # Get Mic Icon

@@ -1,6 +1,5 @@
 [config.wallpaper]
-command = "swww"
-arguments = ["img", "--transition-type", "any", "--transition-fps", "60"]
+command = "awww img {{image}} --transition-type any --transition-fps 60"
 set = true
 
 [templates.waybar]
@@ -11,7 +10,7 @@ post_hook = 'pkill -SIGUSR2 waybar'
 [templates.kitty]
 input_path = '~/.config/matugen/templates/kitty-colors.conf'
 output_path = '~/.config/kitty/colors.conf'
-post_hook = "kill -SIGUSR1 $(pidof kitty)"
+post_hook = "pkill -USR1 kitty"
 
 [templates.hyprland]
 input_path = '~/.config/matugen/templates/hyprland-colors.conf'

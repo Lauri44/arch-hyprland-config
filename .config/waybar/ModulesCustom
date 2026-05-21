@@ -81,12 +81,12 @@
 	"on-click-right": "hyprlock"
 },
 
-"custom/keyboard": {
-	"exec": "cat $HOME/.cache/kb_layout",
-	"interval": 1,
-	"format": " {}",
-	"on-click": "$HOME/.config/hypr/scripts/SwitchKeyboardLayout.sh",
-},
+//"custom/keyboard": {
+//	"exec": "cat $HOME/.cache/kb_layout",
+//  "interval": 1,
+//  "format": " {}",
+//  "on-click": "$HOME/.config/hypr/scripts/SwitchKeyboardLayout.sh",
+//},
 
 "custom/light_dark": {
 	"format": "󰔎 ",
@@ -99,9 +99,9 @@
 
 "custom/lock": {
 	"format": "󰌾",
-	"on-click": "$HOME/.config/hypr/scripts/LockScreen.sh",
+	"on-click": "$HOME/.config/hypr/scripts/hyprlock.sh",
 	"tooltip": true,
-	"tooltip-format": "󰷛 Screen Lock",
+	"tooltip-format": "󰷛   Screen Lock",
 },
 
 "custom/menu": {
