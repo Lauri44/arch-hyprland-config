@@ -7,13 +7,24 @@ echo " "
 echo "[INFO] Install dependencies..."
 echo " "
 
-sudo pacman -S hyprpolkitagent hyprlock awww hypridle waybar nwg-displays matugen cava fastfetch rofi swaync "swaync 0.12" wlogout nm-applet bluez bluez-utils blueman btop hyprshot hyprpicker
+sudo pacman -S --needed - < ./main_packages
+
+if command -v yay &> /dev/null 2>&1
+then
+    yay -S --needed - < ./aur_packages
+elif command -v paru &> /dev/null 2>&1
+then
+    paru -S --needed - < ./aur_packages
+else
+    echo "Either paru or yay must be installed"
+    exit
+fi
 
 echo " "
 echo "[INFO] Copying Config Files"
 echo " "
 
-cp -rf .config ~/.config/
+/bin/cp -rf .config ~/.config/
 
 echo " "
 echo "[INFO] Enabling Services"
